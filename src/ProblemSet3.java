@@ -49,7 +49,17 @@ public class ProblemSet3 {
      */
     
     public void sign() {
+        
+        System.out.print("\nEnter an integer: "); //
+        int userIntegerSign = in.nextInt(); // Sign = Positive or Negative (Or Zero)
 
+        if (userIntegerSign > 0 ) {
+            System.out.println("\nPositive.\n");
+        } else  if (userIntegerSign < 0 ) {
+            System.out.println("\nNegative.\n");
+        } else {
+            System.out.println("\nZero.\n");
+        }
     }
     
     /*
@@ -60,6 +70,14 @@ public class ProblemSet3 {
     
     public void parity() {
 
+        System.out.print("Enter an integer: ");
+        int userIntegerType = in.nextInt(); // Type = Even or Odd 
+
+        if (userIntegerType % 2 == 0 ) {
+            System.out.println("\nEven.\n");
+        } else {
+            System.out.println("\nOdd.\n");
+        } 
     }
     
     /*
