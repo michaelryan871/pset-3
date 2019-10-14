@@ -33,8 +33,8 @@ public class ProblemSet3 {
         ps.ordered();       // executes Exercise 3
         ps.gpa();           // executes Exercise 4
     //  ps.grade();         // executes Exercise 5
-        ps.cards();         // executes Exercise 6
-        ps.leapYear();      // executes Exercise 7
+    //  ps.cards();         // executes Exercise 6
+    //  ps.leapYear();      // executes Exercise 7
     //  ps.state();         // executes Exercise 8
     //  ps.months();        // executes Exercise 9
     //  ps.salary();        // executes Exercise 10
@@ -141,6 +141,96 @@ public class ProblemSet3 {
 
     public void cards() {
 
+      System.out.print("\nEnter a card: ");
+      String userCardInput = (in.nextLine()).toUpperCase();
+      String cardSuite = userCardInput.substring(1);
+      String cardRank = userCardInput.substring(0, 1);
+      boolean equivalent = false;
+
+      switch (cardRank){
+        case "2":
+          cardRank = "Two";
+          equivalent = true;
+          break;
+        case "3":
+          cardRank = "Three";
+          equivalent = true;
+          break;
+        case "4":
+          cardRank = "Four";
+          equivalent = true;
+          break;
+        case "5":
+          cardRank = "Five";
+          equivalent = true;
+          break;
+        case "6":
+          cardRank = "Six";
+          equivalent = true;
+          break;
+        case "7":
+          cardRank = "Seven";
+          equivalent = true;
+          break;
+        case "8":
+          cardRank = "Eight";
+          equivalent = true;
+          break;
+        case "9":
+          cardRank = "Nine";
+          equivalent = true;
+          break;
+        case "T":
+          cardRank = "Ten";
+          equivalent = true;
+          break;
+        case "J":
+          cardRank = "Jack";
+          equivalent = true;
+          break;
+        case "Q":
+          cardRank = "Queen";
+          equivalent = true;
+          break;
+        case "K":
+          cardRank = "King";
+          equivalent = true;
+          break;
+        case "A":
+          cardRank = "Ace";
+          equivalent = true;
+          break;
+        default:
+          System.out.println("\nThat's not a valid rank.");
+          equivalent = false;
+      }
+
+      if (equivalent) {
+        switch (cardSuite){
+          case "C":
+            cardSuite = "Clubs";
+            break;
+          case "D":
+            cardSuite = "Diamonds";
+            break;
+          case "H":
+            cardSuite = "Hearts";
+            break;
+          case "S":
+            cardSuite = "Spades";
+            break;
+          default:
+            System.out.println("\nThat's not a valid suite.");
+            equivalent = false;
+        }
+      }
+
+      if (equivalent) {
+        System.out.print("\n" + cardRank + " of " + cardSuite + ".");
+      }
+
+
+
     }
 
     /*
@@ -150,8 +240,15 @@ public class ProblemSet3 {
      */
 
     public void leapYear() {
+      System.out.print("\nEnter a year: ");
+      long yearIsLeapYear = in.nextLong();
 
+      if ((yearIsLeapYear % 4 == 0 && yearIsLeapYear % 100 != 0) || yearIsLeapYear % 400 == 0) {
+        System.out.println("\n"  + yearIsLeapYear + " is a leap year.");
+    } else {
+        System.out.println("\n" + yearIsLeapYear + " is not a leap year.");
     }
+  }
 
     /*
      * Exercise 8.
