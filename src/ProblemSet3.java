@@ -28,16 +28,16 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-    //    ps.sign();          // executes Exercise 1
-    //    ps.parity();        // executes Exercise 2
+    //  ps.sign();          // executes Exercise 1
+    //  ps.parity();        // executes Exercise 2
         ps.ordered();       // executes Exercise 3
         ps.gpa();           // executes Exercise 4
-        ps.grade();         // executes Exercise 5
+    //  ps.grade();         // executes Exercise 5
         ps.cards();         // executes Exercise 6
         ps.leapYear();      // executes Exercise 7
-        ps.state();         // executes Exercise 8
-        ps.months();        // executes Exercise 9
-        ps.salary();        // executes Exercise 10
+    //  ps.state();         // executes Exercise 8
+    //  ps.months();        // executes Exercise 9
+    //  ps.salary();        // executes Exercise 10
 
         in.close();
     }
@@ -107,6 +107,29 @@ public class ProblemSet3 {
      */
 
     public void grade() {
+      System.out.print("\nEnter a grade: ");
+      int userGrade = in.nextInt();
+
+      if (userGrade >= 90 && userGrade <= 100) {
+        char gradeInLetterFormat = 'A';
+        System.out.println("\nYou recieved an " + gradeInLetterFormat + ".");
+      } else if (userGrade >= 80 && userGrade <= 89){
+        char gradeInLetterFormat = 'B';
+        System.out.println("\nYou recieved a " + gradeInLetterFormat + ".");
+      } else if (userGrade >= 70 && userGrade <= 79){
+        char gradeInLetterFormat = 'C';
+        System.out.println("\nYou recieved a " + gradeInLetterFormat + ".");
+      } else if (userGrade >= 60 && userGrade <= 69){
+        char gradeInLetterFormat = 'D';
+        System.out.println("\nYou recieved a " + gradeInLetterFormat + ".");
+      } else if (userGrade >= 0 && userGrade <= 59){
+        char gradeInLetterFormat = 'F';
+        System.out.println("\nYou recieved an " + gradeInLetterFormat + ".");
+      } else if (userGrade > 100){
+        System.out.println("\nGrades above 100 are invalid.");
+      } else {
+        System.out.println("\nGrades below 0 are invalid.");
+      }
 
     }
 
@@ -233,7 +256,6 @@ public class ProblemSet3 {
           default:
             System.out.println("\nThat's not a valid month.\n");
             break;
-
         }
     }
 
@@ -247,5 +269,30 @@ public class ProblemSet3 {
 
     public void salary() {
 
-    }
+        final double OVERTIME_THRESHOLD = 40;
+        final double PAY_MULTIPLIER = 1.5;
+
+        System.out.print("\nWage: ");
+        double userWage = in.nextDouble();
+        if (userWage < 0){
+         System.out.println("\nYour wage must be greater than or equal to $0.00/hour.\n");
+       }
+       System.out.print("Hours: ");
+       double weeklyTotalHours = in.nextDouble(); //represents the total amount
+       // of hours a person works, including 40 hours plus overtime hours.
+       if (weeklyTotalHours < 0){
+         System.out.println("\nYour hours must be greater than or equal to 0.0.");
+       }
+        double overtimeHours;
+        double salary;
+
+        if (weeklyTotalHours > OVERTIME_THRESHOLD) {
+          overtimeHours = weeklyTotalHours - OVERTIME_THRESHOLD;
+          salary = 40 * userWage + overtimeHours * PAY_MULTIPLIER * userWage;
+          System.out.println("\nYou'll make " + String.format("$%,.2f", salary) + " this week.");
+        } else {
+          salary = weeklyTotalHours * userWage;
+            System.out.println("\nYou'll make " + String.format("$%,.2f", salary) + " this week.");
+        }
+  }
 }
