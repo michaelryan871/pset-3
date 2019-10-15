@@ -28,16 +28,16 @@ public class ProblemSet3 {
 
         // comment out or uncomment as needed
 
-    //  ps.sign();          // executes Exercise 1
-    //  ps.parity();        // executes Exercise 2
+        ps.sign();          // executes Exercise 1
+        ps.parity();        // executes Exercise 2
         ps.ordered();       // executes Exercise 3
         ps.gpa();           // executes Exercise 4
-    //  ps.grade();         // executes Exercise 5
-    //  ps.cards();         // executes Exercise 6
-    //  ps.leapYear();      // executes Exercise 7
-    //  ps.state();         // executes Exercise 8
-    //  ps.months();        // executes Exercise 9
-    //  ps.salary();        // executes Exercise 10
+        ps.grade();         // executes Exercise 5
+        ps.cards();         // executes Exercise 6
+        ps.leapYear();      // executes Exercise 7
+        ps.state();         // executes Exercise 8
+        ps.months();        // executes Exercise 9
+  //          ps.salary();        // executes Exercise 10
 
         in.close();
     }
@@ -88,6 +88,27 @@ public class ProblemSet3 {
 
     public void ordered() {
 
+      System.out.println("Enter three integers.");
+      System.out.print("\nEnter integer: ");
+      long firstInteger = in.nextLong();
+      System.out.print("Enter integer: ");
+      long secondInteger = in.nextLong();
+      System.out.print("Enter integer: ");
+      long thirdInteger = in.nextLong();
+
+      if (firstInteger  == secondInteger && secondInteger == thirdInteger ){
+          System.out.println("\nEquivalent.");
+      } else if (firstInteger < secondInteger && secondInteger < thirdInteger){
+          System.out.println("\nStrictly Increasing.");
+        } else if (firstInteger > secondInteger &&  secondInteger > thirdInteger){
+          System.out.println("\nStrictly Decreasing.");
+      } else if (firstInteger <= secondInteger && secondInteger <= thirdInteger){
+          System.out.println("\nIncreasing.");
+      } else if (firstInteger >= secondInteger && secondInteger >= thirdInteger){
+        System.out.println("\nDecreasing. ");
+      } else {
+        System.out.println("\nUnordered.");
+      }
     }
 
     /*
@@ -98,6 +119,58 @@ public class ProblemSet3 {
 
     public void gpa() {
 
+      final double ADDITION_TO_BASELINE_GRADE = 0.33;
+      final double SUBTRACTION_FROM_BASELINE_GRADE = -0.33;
+
+      final double LETTER_GRADE_A = 4.00;
+      final double LETTER_GRADE_B = 3.00;
+      final double LETTER_GRADE_C = 2.00;
+      final double LETTER_GRADE_D = 1.00;
+      final double LETTER_GRADE_F = 0.00;
+      double gradePointAverage = 0;
+
+      System.out.print("\nEnter a letter grade: ");
+      String letterGrade = (in.next()).toUpperCase();
+
+      if (letterGrade.equals("A") || (letterGrade.equals("A+"))){
+        gradePointAverage = LETTER_GRADE_A;
+        System.out.println("\nYour GPA is " + String.format("%.2f",gradePointAverage) + ".");
+      } else if (letterGrade.equals("A-")){
+        gradePointAverage = LETTER_GRADE_A + SUBTRACTION_FROM_BASELINE_GRADE;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("B+")){
+        gradePointAverage = LETTER_GRADE_B + ADDITION_TO_BASELINE_GRADE;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("B")){
+        gradePointAverage = LETTER_GRADE_B;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("B-")){
+        gradePointAverage = LETTER_GRADE_B + SUBTRACTION_FROM_BASELINE_GRADE;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("C+")){
+        gradePointAverage = LETTER_GRADE_C + ADDITION_TO_BASELINE_GRADE;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("C")){
+        gradePointAverage = LETTER_GRADE_C;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("C-")){
+        gradePointAverage = LETTER_GRADE_C + SUBTRACTION_FROM_BASELINE_GRADE;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("D+")){
+        gradePointAverage = LETTER_GRADE_D + ADDITION_TO_BASELINE_GRADE;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("D")){
+        gradePointAverage = LETTER_GRADE_D;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("D-")){
+        gradePointAverage = LETTER_GRADE_D + SUBTRACTION_FROM_BASELINE_GRADE;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else if (letterGrade.equals("F")){
+        gradePointAverage = LETTER_GRADE_F;
+        System.out.println("\nYour GPA is " + String.format("%.2f", gradePointAverage) + ".");
+      } else {
+        System.out.println("\nThat's not a valid letter grade.");
+      }
     }
 
     /*
@@ -142,7 +215,7 @@ public class ProblemSet3 {
     public void cards() {
 
       System.out.print("\nEnter a card: ");
-      String userCardInput = (in.nextLine()).toUpperCase();
+      String userCardInput = (in.next()).toUpperCase();
       String cardSuite = userCardInput.substring(1);
       String cardRank = userCardInput.substring(0, 1);
       boolean equivalent = false;
@@ -226,7 +299,7 @@ public class ProblemSet3 {
       }
 
       if (equivalent) {
-        System.out.print("\n" + cardRank + " of " + cardSuite + ".");
+        System.out.print("\n" + cardRank + " of " + cardSuite + ".\n");
       }
 
 
@@ -261,7 +334,7 @@ public class ProblemSet3 {
       System.out.print("\nEnter a temperature: ");
       double waterTemperature = in.nextDouble();
       System.out.print("Enter a scale: ");
-      String temperatureScale = in.next();
+      String temperatureScale = (in.next()).toUpperCase();
 
       // Solid. Liquid. Gas. That's not a valid scale.
 
@@ -273,7 +346,7 @@ public class ProblemSet3 {
             System.out.println("\nGas.\n");
         } else if (waterTemperature == 32 || waterTemperature < 32 && temperatureScale.equals("F")){
             System.out.println("\nSolid.\n");
-        } else if (32 > waterTemperature && waterTemperature > 32 && temperatureScale.equals("F")){
+        } else if (212 > waterTemperature && waterTemperature > 32 && temperatureScale.equals("F")){
             System.out.println("\nLiquid.\n");
         } else if (waterTemperature >= 212 && temperatureScale.equals("F")){
             System.out.println("\nGas.\n");
@@ -291,63 +364,63 @@ public class ProblemSet3 {
 
     public void months() {
       System.out.print("Enter a month: ");
-        String userMonth = in.next();
+        String userMonth = (in.next()).toUpperCase();
         //28 or 29 days. 30 days. 31 days. That's not a valid month.
         switch (userMonth) {
-          case "January":
-          case "Jan":
-          case "Janu":
+          case "JANUARY":
+          case "JAN":
+          case "JANU":
             System.out.println("\n31 days.\n");
             break;
-          case "February":
-          case "Feb":
-          case "Febr":
+          case "FEBRUARY":
+          case "FEB":
+          case "FEBR":
             System.out.println("\n28 or 29 days.\n");
             break;
-          case "March":
-          case "Mar":
-          case "Marc":
+          case "MARCH":
+          case "MAR":
+          case "MARC":
             System.out.println("\n31 days.\n");
             break;
-          case "April":
-          case "Apr":
-          case "Apri":
+          case "APRIL":
+          case "APR":
+          case "APRI":
             System.out.println("\n30 days.\n");
             break;
-          case "May":
+          case "MAY":
             System.out.println("\n31 days.\n");
             break;
-          case "June":
-          case "Jun":
+          case "JUNE":
+          case "JUN":
             System.out.println("\n30 days.\n");
             break;
-          case "July":
-          case "Jul":
+          case "JULY":
+          case "JUL":
             System.out.println("\n31 days.\n");
             break;
-          case "August":
-          case "Aug":
-          case "Augu":
+          case "AUGUST":
+          case "AUG":
+          case "AUGU":
             System.out.println("\n31 days.\n");
             break;
-          case "September":
-          case "Sep":
-          case "Sept":
+          case "SEPTEMBER":
+          case "SEP":
+          case "SEPT":
             System.out.println("\n30 days.\n");
             break;
-          case "October":
-          case "Oct":
-          case "Octo":
+          case "OCTOBER":
+          case "OCT":
+          case "OCTO":
             System.out.println("\n31 days.\n");
             break;
-          case "November":
-          case "Nov":
-          case "Nove":
+          case "NOVEMBER":
+          case "NOV":
+          case "NOVE":
             System.out.println("\n30 days.\n");
             break;
-          case "December":
-          case "Dec":
-          case "Dece":
+          case "DECEMBER":
+          case "DEC":
+          case "DECE":
             System.out.println("\n31 days.\n");
             break;
           default:
@@ -369,7 +442,7 @@ public class ProblemSet3 {
         final double OVERTIME_THRESHOLD = 40;
         final double PAY_MULTIPLIER = 1.5;
 
-        System.out.print("\nWage: ");
+        System.out.print("Wage: ");
         double userWage = in.nextDouble();
         if (userWage < 0){
          System.out.println("\nYour wage must be greater than or equal to $0.00/hour.\n");
